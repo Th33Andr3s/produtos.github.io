@@ -412,6 +412,7 @@ html {
     animation: spin 1s linear infinite;
 }
 
+/* Animación de carga */
 @keyframes spin {
     to {
         transform: rotate(360deg);
