@@ -253,6 +253,68 @@
         </div>
     </section>
 
+    <!-- Catalog PDF Section - Agregar antes de Contact Section -->
+    <section id="catalog" class="section">
+        <div class="container">
+            <h2>Catálogo Completo</h2>
+            <p class="text-center" style="font-size: 1.2rem; margin-bottom: 2rem; color: #666;">
+                Explora todos nuestros productos de cuidado personal en nuestro catálogo digital
+            </p>
+            
+            <!-- Contenedor del PDF -->
+            <div id="pdf-container" class="pdf-container active">
+                <div class="pdf-controls">
+                    <div class="pdf-info">
+                        <span>📋 Catálogo de Productos Naturales</span>
+                        <small>Todos los precios y productos actualizados</small>
+                    </div>
+                    <div class="pdf-buttons">
+                        <button onclick="downloadPDF()" class="control-btn">
+                            ⬇️ Descargar
+                        </button>
+                        <button onclick="openFullscreen()" class="control-btn">
+                            🔍 Pantalla Completa
+                        </button>
+                        <button onclick="toggleCatalog()" class="control-btn close-btn">
+                            ❌ Cerrar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Loading indicator -->
+                <div id="pdf-loading" class="pdf-loading">
+                    <div class="spinner"></div>
+                    Cargando catálogo...
+                </div>
+                
+                <!-- PDF Viewer -->
+                <iframe 
+                    id="pdf-viewer" 
+                    class="pdf-viewer" 
+                    src="Catalogo/Catalogo_Productos_Naturales.pdf"
+                    onload="hidePDFLoading()"
+                    style="display: none;">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para pantalla completa -->
+    <div id="pdf-modal" class="pdf-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📋 Catálogo Completo - Belleza Natural</h3>
+                <button class="close-modal" onclick="closeFullscreen()">❌</button>
+            </div>
+            <iframe 
+                id="modal-pdf-viewer" 
+                class="modal-pdf" 
+                src="Catalogo/Catalogo_Productos_Naturales.pdf">
+            </iframe>
+        </div>
+    </div>
+
+  
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">

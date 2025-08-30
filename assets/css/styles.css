@@ -331,8 +331,8 @@ body {
 .btn {
     display: inline-block;
     padding: 1rem 2rem;
-    background: white;
-    color: #667eea;
+    background: rgb(159, 226, 231);
+    color: #fafafa;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
@@ -343,7 +343,7 @@ body {
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    background: #f8f9ff;
+    background: #e6afe1;
 }
 
 /* Footer */
@@ -444,4 +444,217 @@ html {
     color: white;
     font-weight: bold;
     text-decoration: underline;
+}
+
+/* Estilos para la nueva sección de catálogo */
+.catalog-toggle {
+    background: linear-gradient(135deg, #f156ac 0%, #af78e6 100%);
+    color: white;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(241, 86, 172, 0.3);
+}
+
+.catalog-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(241, 86, 172, 0.4);
+}
+
+.pdf-container {
+    display: block;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    margin-top: 2rem;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+.pdf-container.active {
+    display: block;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pdf-controls {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pdf-info span {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.pdf-info small {
+    display: block;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.pdf-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.control-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+}
+
+.close-btn:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.pdf-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    font-size: 1.1rem;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 800px;
+    border: none;
+}
+
+/* Modal para pantalla completa */
+.pdf-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.pdf-modal.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    width: 95%;
+    height: 95%;
+    margin: 2.5%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #f156ac 0%, #af78e6 100%);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+
+.modal-pdf {
+    flex: 1;
+    width: 100%;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pdf-controls {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .pdf-viewer {
+        height: 600px;
+    }
+    
+    .modal-content {
+        width: 98%;
+        height: 98%;
+        margin: 1%;
+    }
+    
+    .pdf-buttons {
+        justify-content: center;
+    }
 }
